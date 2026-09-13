@@ -1,16 +1,34 @@
-# React + Vite
+```markdown
+# 🎨 Movie Discovery App - Frontend Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, single-page movie discovery interface built with React, React Router, and Tailwind CSS. It communicates with the custom Node.js/Express backend to deliver search, filtering, and wishlist management.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Tech Stack & Features
 
-## React Compiler
+* **Core Library:** React.js
+* **Styling:** Tailwind CSS (Dark-themed responsive grid)
+* **Routing:** React Router DOM
+* **HTTP Client:** Axios
+* **State & Performance:** Custom `useDebounce` hook for search inputs (600ms delay) to optimize API requests.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Key Features
+* Dynamic trending and paginated movie grid.
+* Genre filtering and multi-attribute sorting (Popularity, Rating, Release Date).
+* Real-time debounced search with query reset.
+* Detailed movie page featuring backdrops, taglines, ratings, and genre tags.
+* Instant wishlist toggling synced with MongoDB backend.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📁 Project Structure
+
+```text
+src/
+├── api/          # Axios instance and API call abstractions
+├── components/   # Reusable UI elements (MovieCard, Skeleton loaders)
+├── hooks/        # Custom utility hooks (useDebounce)
+├── pages/        # Views (HomePage, MovieDetails, WishlistPage)
+├── App.jsx       # Route configurations
+└── main.jsx      # Entry point
