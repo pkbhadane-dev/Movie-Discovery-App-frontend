@@ -7,6 +7,7 @@ import {
   fetchWishlist,
   addToWishlist,
   removeFromWishlist,
+  fetchMovies,
 } from "../api/axios";
 import { useDebounce } from "../hooks/useDebounce";
 import MovieCard from "../components/MovieCard";
@@ -50,11 +51,12 @@ export const HomePage = () => {
       if (debouncedSearch.trim()) {
         res = await searchMovies(debouncedSearch.trim(), page);
       } else {
-        res = await discoverMovies({ genre: selectedGenre, sortBy, page });
+        // res = await discoverMovies({ genre: selectedGenre, sortBy, page });
+        res = await fetchMovies(page);
       }
 
-      if (res.data && res.data.data.movie) {
-        setMovies(res.data.data.movie);
+      if (res.data && res.data.data) {
+        setMovies(res.data.data);
       } else {
         setMovies([]);
       }
@@ -79,10 +81,10 @@ export const HomePage = () => {
     setPage(1);
   };
 
-//   const handleSortChange = (e) => {
-//     setSortBy(e.target.value);
-//     setPage(1);
-//   };
+  //   const handleSortChange = (e) => {
+  //     setSortBy(e.target.value);
+  //     setPage(1);
+  //   };
 
   const handleClearSearch = () => {
     setSearchQuery("");
