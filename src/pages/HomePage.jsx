@@ -52,7 +52,6 @@ export const HomePage = () => {
       } else {
         res = await discoverMovies({ genre: selectedGenre, sortBy, page });
       }
-      console.log(res.data.data.movie);
 
       if (res.data && res.data.data.movie) {
         setMovies(res.data.data.movie);
